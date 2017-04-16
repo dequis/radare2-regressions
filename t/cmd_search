@@ -56,6 +56,18 @@ EXPECT='[{"offset": 0,"id:":0,"data":"foo\u0000"}]
 '
 run_test
 
+NAME='/j search backslash escaping'
+FILE='malloc://1024'
+ARGS=
+BROKEN=1
+CMDS='
+wx 5c00
+/j \\\x00
+'
+EXPECT='[{"offset": 0,"id:":0,"data":"\\\u0000"}]
+'
+run_test
+
 NAME='/! search'
 FILE='malloc://1024'
 ARGS=
